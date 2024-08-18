@@ -1,8 +1,9 @@
-# Quarto Timer
+# Quarto Clock
 
-This extension provides the ability to add visible progress timers to your slides. This might be helpful, if, for example, you want your audience to think about a specific topic for 5 minutes.
+This extension provides the ability to add a dynamic clock to your slides. This might be helpful, if, for example, you want your audience to think about a specific topic for 5 minutes.
  
-![Timer in action](https://www.produnis.de/blog/posts/2024-01-16-QuartoExtensions/4mintimer.jpg)
+![image](https://github.com/user-attachments/assets/3ab03177-0065-42e0-8e9f-f56a1c2aa051)
+
 
 ## Installation
 In the RStudio terminal:
@@ -23,10 +24,10 @@ If you want to add a timer in raw HTML, you can use the following code snippet i
 
 ```
 <div id="UNIQUE-ID"></div>
-<script src="_extensions/produnis/timer/timer.js"></script>
+<script src="_extensions/MrToWy/clock/clock.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        initializeTimer("UNIQUE-ID", SECONDS, STARTON); 
+        initializeClock("UNIQUE-ID", SECONDS, STARTON); 
     });
 </script>
 ```
