@@ -39,14 +39,8 @@ function initializeClock(containerId, timeLimit, startOn) {
       document.getElementById(`${containerId}-label`).innerHTML = formatClock(
         timeLeft
       );
-
-      setCircleDasharray();
-      setRemainingPathColor(timeLeft);
-
     }
-    if (timeLeft > 0) {
-      setTimeout(startTimer, 1000);
-    }
+    setTimeout(startTimer, 1000);
   }());
 
   function isHidden() {
