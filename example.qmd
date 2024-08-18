@@ -1,8 +1,8 @@
 ---
-title: Quarto Timer
+title: Quarto Clock
 subtitle: Working examples
 filters:
-  - timer
+  - clock
 format:
    revealjs
 ---

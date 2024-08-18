@@ -1,15 +1,15 @@
 quarto.doc.add_html_dependency({
-  name = "quarto-timer",
-  version = "1.0.0",
-  scripts = {"timer.js"},
-  stylesheets = {"timer.css"}
+  name = "quarto-clock",
+  version = "1.0.1",
+  scripts = {"clock.js"},
+  stylesheets = {"clock.css"}
 })
 
 return {
     -- Füge den Filter zu Pandoc hinzu
     {
         Div = function (div)
-            if div.classes[1] == "timer" then
+            if div.classes[1] == "clock" then
                 local containerId = div.identifier
                 local timeLimit = tonumber(div.attributes["seconds"]) or 300  -- Default: 300 Sekunden
                 local startOn = div.attributes["starton"] or "slide" -- Default: timers run when visible

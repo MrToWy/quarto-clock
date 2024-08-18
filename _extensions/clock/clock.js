@@ -84,14 +84,16 @@ function initializeTimer(containerId, timeLimit, startOn) {
 
   // Funktion zur Formatierung der verbleibenden Zeit
   function formatTime(time) {
-    const minutes = Math.floor(time / 60);
-    let seconds = time % 60;
 
-    if (seconds < 10) {
-      seconds = `0${seconds}`;
-    }
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
 
-    return `${minutes}:${seconds}`;
+    const currentTime = `${hours}:${minutes}:${seconds}`;
+
+  
+    return currentTime;
   }
 
   // Funktion zur Festlegung der Farbe des verbleibenden
