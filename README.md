@@ -8,7 +8,7 @@ This extension provides the ability to add visible progress timers to your slide
 In the RStudio terminal:
 
 ```
-$ quarto add produnis/quarto-timer
+$ quarto add MrToWy/quarto-clock
 ```
 
 ## Usage
@@ -57,14 +57,14 @@ This extension also provides a lua-filter that can be activated in YAML with:
 ```
 ---
 filters: 
-  - timer
+  - clock
 ---
 ```
 
 Having the filter ready, you can more easily add a timer with:
 
 ```
-:::{.timer #UNIQUE-ID seconds=100 starton=presentation}
+:::{.clock #UNIQUE-ID seconds=100 starton=presentation}
 :::
 ```
 
