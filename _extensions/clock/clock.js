@@ -6,7 +6,7 @@ const FULL_DASH_ARRAY = 2 * Math.PI * 45;
 const THRESHOLDS = [10, 5];
 
 // Funktion zur Initialisierung des Timers in einem Container
-function initializeTimer(containerId, timeLimit, startOn) {
+function initializeClock(containerId, timeLimit, startOn) {
 
   let active = true;
   let timePassed = 0;
@@ -15,25 +15,12 @@ function initializeTimer(containerId, timeLimit, startOn) {
   // Dynamisches Erstellen des Timer-HTML-Inhalts für jeden Container
   document.getElementById(containerId).innerHTML = `
     <div class="base-timer">
-      <svg id="${containerId}-timer-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <circle id="${containerId}-circle" class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
-          <path
-            id="${containerId}-path-remaining"
-            stroke-dasharray="${FULL_DASH_ARRAY}"
-            class="base-timer__path-remaining"
-            d="M 50 50 m 0 -45 a 45 45 0 0 1 0 90 a 45 45 0 0 1 0 -90">
-          </path>
-          <text id="${containerId}-label" x="50%" y ="50%" dominant-baseline="middle" text-anchor="middle">
-            ${formatTime(timeLeft)}
+    <text id="${containerId}-label" x="50%" y ="50%" dominant-baseline="middle" text-anchor="middle">
+            ${formatClock(timeLeft)}
           </text>
-        </g>
-      </svg>
+      
     </div>
     `;
-
-  document.getElementById(`${containerId}-timer-svg`).addEventListener("click", (event) => {
-    toggleTimer();
-  });
 
   // Set the timer to inactive and then change to type slide
   if ( startOn === "interaction" ) {
@@ -49,7 +36,7 @@ function initializeTimer(containerId, timeLimit, startOn) {
       timePassed += 1;
       timeLeft = timeLimit - timePassed;
 
-      document.getElementById(`${containerId}-label`).innerHTML = formatTime(
+      document.getElementById(`${containerId}-label`).innerHTML = formatClock(
         timeLeft
       );
 
@@ -83,7 +70,7 @@ function initializeTimer(containerId, timeLimit, startOn) {
   }
 
   // Funktion zur Formatierung der verbleibenden Zeit
-  function formatTime(time) {
+  function formatClock(time) {
 
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
@@ -114,9 +101,5 @@ function initializeTimer(containerId, timeLimit, startOn) {
   function setCircleDasharray() {
     let circle_proportions = timeLeft / timeLimit * FULL_DASH_ARRAY + " ";
     circle_proportions += (1 - timeLeft / timeLimit) * FULL_DASH_ARRAY;
-
-    document
-      .getElementById(`${containerId}-path-remaining`)
-      .setAttribute("stroke-dasharray", circle_proportions);
   }
 }
